@@ -63,7 +63,7 @@ namespace SkalProj_Datastrukturer_Minne
         static void ExamineList()
         {
             /*
-             * Loop this method untill the user inputs something to exit to main menue.
+             * Loop this method until the user inputs something to exit to main menue.
              * Create a switch statement with cases '+' and '-'
              * '+': Add the rest of the input to the list (The user could write +Adam and "Adam" would be added to the list)
              * '-': Remove the rest of the input from the list (The user could write -Adam and "Adam" would be removed from the list)
@@ -78,6 +78,33 @@ namespace SkalProj_Datastrukturer_Minne
             //string value = input.substring(1);
 
             //switch(nav){...}
+
+            
+            
+            //Min kod börjar här:
+            List<string> theList = new List<string>();
+            while (true)
+            {
+                // Läs användarens input
+                Console.WriteLine("Enter +<name> to add or -<name> to remove (or type 'exit' to quit):"); 
+                string input = Console.ReadLine();
+
+                // Här kontrollerar jag om användaren vill avsluta
+                if (input.ToLower() == "exit")
+                {
+                    break;
+                }
+
+                // Kontrollera att input inte är tom
+                if (string.IsNullOrEmpty(input) || input.Length < 2)
+                {
+                    Console.WriteLine("Invalid input. Please use +<name> or -<name>.");
+                    continue;
+                }
+
+
+            }
+
         }
 
         /// <summary>
