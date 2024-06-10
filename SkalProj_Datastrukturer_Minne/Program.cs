@@ -245,30 +245,95 @@ namespace SkalProj_Datastrukturer_Minne
              * Create a switch with cases to push or pop items
              * Make sure to look at the stack after pushing and and poping to see how it behaves
             */
+            
+            
+            //1.Simulera ännu en gång ICA-kön på papper. Denna gång med en stack.
+            /*ICA öppnar och stacken är tom.
+                Kalle ställer sig i kön (pushas till stacken).
+                Stack: [Kalle]
+                Greta ställer sig i kön (pushas till stacken).
+                Stack: [Kalle, Greta]
+                Greta blir expedierad och lämnar kön (poppas från stacken).
+                Stack: [Kalle]
+                Stina ställer sig i kön (pushas till stacken).
+                Stack: [Kalle, Stina]
+                Stina blir expedierad och lämnar kön (poppas från stacken).
+                Stack: [Kalle]
+                Olle ställer sig i kön (pushas till stacken).
+                Stack: [Kalle, Olle]
+             */
+
+            //Varför är det inte så smart att använda en stack i det här fallet? 
+            /*Med en stack blir ordningen omvänd jämfört med hur en kö ska fungera. 
+             *Greta och Stina, som ställde sig i kön efter Kalle, blev expedierade före honom, 
+             *vilket inte är en logisk eller rättvis ordning för att hantera köer som t.ex. en ICA-kassa kö.
+             */
+
+            // Min kod börjar här:
+            Stack<char> stack = new Stack<char>(); // Skapar en ny stack för tecken
+            string input;
+            bool exitLoop = false;
+
+            while (!exitLoop) // Loopen körs tills användaren väljer att avsluta
+            {
+                Console.WriteLine("1. Pusha tecken till stacken");
+                Console.WriteLine("2. Poppa tecken från stacken");
+                Console.WriteLine("3. Skriv ut stacken");
+                Console.WriteLine("4. Anropa Reverse metoden");
+                Console.WriteLine("5. Avsluta");
+                Console.Write("Välj ett alternativ: ");
+
+                input = Console.ReadLine();
+
+                switch (input)
+                {
+                    case "1": // Pusha tecken till stacken
+                        Console.Write("Ange tecken att pusha: ");
+                        char charToPush = Console.ReadKey().KeyChar; // Läsa in ett enskilt tecken från användaren och lagra det i variabeln charToPush av typen char
+                        Console.WriteLine();
+                        stack.Push(charToPush);  // Lägger till tecknet överst på stacken
+                        break;
+
+                    case "2": // Poppa tecken från stacken
+                        if (stack.Count > 0)
+                        {
+                            char poppedChar = stack.Pop(); // Tar bort och returnerar tecknet överst på stacken
+                            Console.WriteLine($"Poppade tecknet: {poppedChar}");
+                        }
+                        else
+                        {
+                            Console.WriteLine("Stacken är tom");
+                        }
+                        break;
+
+                    case "3": // Skriv ut stacken
+                        Console.WriteLine("Stacken innehåller: ");
+                        foreach (char x in stack) // Itererar över stacken och skriver ut varje tecken
+                        {
+                            Console.Write(x + "");
+                        }
+                        Console.WriteLine();
+                        break;
+
+                    case "4": // Anropa Reverse metoden
+                        ReverseText(); // metoden är inte färdigkodad ännu.
+                        break;
+
+                    case "5": // Avsluta
+                        exitLoop = true;
+                        break;
+
+                    default:
+                        Console.WriteLine("Ogiltigt val, försök igen.");
+                        break;
+                }
+
+            } 
+
+
         }
 
-        //1.Simulera ännu en gång ICA-kön på papper. Denna gång med en stack.
-        //Varför är det inte så smart att använda en stack i det här fallet? 
 
-        /*ICA öppnar och stacken är tom.
-            Kalle ställer sig i kön (pushas till stacken).
-            Stack: [Kalle]
-            Greta ställer sig i kön (pushas till stacken).
-            Stack: [Kalle, Greta]
-            Greta blir expedierad och lämnar kön (poppas från stacken).
-            Stack: [Kalle]
-            Stina ställer sig i kön (pushas till stacken).
-            Stack: [Kalle, Stina]
-            Stina blir expedierad och lämnar kön (poppas från stacken).
-            Stack: [Kalle]
-            Olle ställer sig i kön (pushas till stacken).
-            Stack: [Kalle, Olle]
-         */
-
-        /*Med en stack blir ordningen omvänd jämfört med hur en kö ska fungera. 
-         *Greta och Stina, som ställde sig i kön efter Kalle, blev expedierade före honom, 
-         *vilket inte är en logisk eller rättvis ordning för att hantera köer som t.ex. en ICA-kassa kö.
-         */
 
 
         static void CheckParanthesis()
