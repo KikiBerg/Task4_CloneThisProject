@@ -362,6 +362,16 @@ namespace SkalProj_Datastrukturer_Minne
              * Example of incorrect: (()]), [), {[()}],  List<int> list = new List<int>() { 1, 2, 3, 4 );
              */
 
+            /*1.Skapa med hjälp av er nya kunskap funktionalitet för att kontrollera en välformad sträng på papper. 
+             * Du ska använda dig av någon eller några av de datastrukturer vi precis gått igenom. 
+             * Vilken datastruktur använder du?
+             * 
+             * Svar:
+             * Jag skulle använda en stack eftersom den följer LIFO principen, alltså "Last In, First Out".
+             * Detta innebär att det senaste elementet som lagts till är det första som tas bort.
+             * I vårt fall med parenteser funkar det bra för att matcha öppna och stängda parenteser.
+             */
+
         }
 
     }
