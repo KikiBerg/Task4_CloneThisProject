@@ -183,19 +183,35 @@ namespace SkalProj_Datastrukturer_Minne
 
                 switch (userChoice)
                 {
-                    case "1":
+                    case "1": // Lägger till en person i kön med Enqueue
                         Console.Write("Ange namnet på personen som ska ställa sig i kön: ");
                         string name = Console.ReadLine();
                         queue.Enqueue(name);
                         Console.WriteLine($"{name} har ställt sig i kön.");
                         break;
 
-                    case "2":
+                    case "2": // Tar bort en person från kön med Dequeue
                         if (queue.Count > 0)
                         {
                             string dequeuedName = queue.Dequeue();
                             Console.WriteLine($"{dequeuedName} har lämnat kön.");
                         }
+                        break;
+
+                    case "3": // Visar nuvarande kön
+                        Console.WriteLine("Nuvarande kö: ");
+                        foreach (string person in queue)
+                        {
+                            Console.WriteLine(person);
+                        }
+                        break;
+
+                    case "4": // Avslutar programmet
+                        exit = true;
+                        break;
+
+                    default :
+                        Console.WriteLine("Valet var ogiltigt.");
                         break;
                 }
 
