@@ -247,6 +247,30 @@ namespace SkalProj_Datastrukturer_Minne
             */
         }
 
+        //1.Simulera ännu en gång ICA-kön på papper. Denna gång med en stack.
+        //Varför är det inte så smart att använda en stack i det här fallet? 
+
+        /*ICA öppnar och stacken är tom.
+            Kalle ställer sig i kön (pushas till stacken).
+            Stack: [Kalle]
+            Greta ställer sig i kön (pushas till stacken).
+            Stack: [Kalle, Greta]
+            Greta blir expedierad och lämnar kön (poppas från stacken).
+            Stack: [Kalle]
+            Stina ställer sig i kön (pushas till stacken).
+            Stack: [Kalle, Stina]
+            Stina blir expedierad och lämnar kön (poppas från stacken).
+            Stack: [Kalle]
+            Olle ställer sig i kön (pushas till stacken).
+            Stack: [Kalle, Olle]
+         */
+
+        /*Med en stack blir ordningen omvänd jämfört med hur en kö ska fungera. 
+         *Greta och Stina, som ställde sig i kön efter Kalle, blev expedierade före honom, 
+         *vilket inte är en logisk eller rättvis ordning för att hantera köer som t.ex. en ICA-kassa kö.
+         */
+
+
         static void CheckParanthesis()
         {
             /*
