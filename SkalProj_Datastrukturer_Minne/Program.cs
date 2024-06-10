@@ -127,6 +127,32 @@ namespace SkalProj_Datastrukturer_Minne
 
             }
 
+
+            //Frågorna besvaras här:
+            /* 2. När ökar listans kapacitet? (Alltså den underliggande arrayens storlek)
+             * Listans kapacitet ökar när antalet element (Count) överstiger den nuvarande kapaciteten.
+             * Detta händer vid nummer 4. 
+             */
+
+            /* 3. Med hur mycket ökar kapaciteten?
+             * Kapaciteten ökar från 4 till 8, alltså fördubblas
+             */
+
+            /* 4. Varför ökar inte listans kapacitet i samma takt som element läggs till?
+             * Kapaciteten ökar inte i samma takt som element läggs till för att kan vara 
+             * kostsamt när det gäller prestanda. Genom att fördubbla kapaciteten minimerar 
+             * listan antalet gånger den behöver allokera om och kopiera element till en ny 
+             * array, vilket förbättrar prestandan.
+             */
+
+            /* 5. Minskar kapaciteten när element tas bort ur listan?
+             * Kapaciteten minskar inte när element tas bort.
+             */
+
+            /* 6. När är det fördelaktigt att använda en egendefinierad array istället för en lista?
+             * Det kan vara fördelaktigt att använda en egendefinierad array när man t.ex.
+             * vet det exakta antalet element man behöver, och detta antal inte kommer att förändras.
+             */
         }
 
         /// <summary>
