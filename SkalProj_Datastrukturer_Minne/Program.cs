@@ -102,6 +102,28 @@ namespace SkalProj_Datastrukturer_Minne
                     continue;
                 }
 
+                //Identifiera vilken operation som ska utföras (lägga till eller ta bort) och vilket värde som är relevant för operationen
+                char nav = input[0];
+                string value = input.Substring(1);
+
+                switch (nav)
+                {
+                    // Lägg till information i listan
+                    case '+':
+                        theList.Add(value);
+                        break;
+                    // Ta bort information från listan
+                    case '-':
+                        theList.Remove(value);
+                        break;
+                    // Hantera felanvändning
+                    default:
+                        Console.WriteLine("Invalid operation. Please use only +<name> or -<name>.");
+                        continue;
+                }
+
+                // Visa antal element och listans kapacitet 
+                Console.WriteLine($"Count: {theList.Count}, Capacity: {theList.Capacity}");
 
             }
 
