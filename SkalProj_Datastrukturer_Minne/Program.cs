@@ -217,6 +217,22 @@ namespace SkalProj_Datastrukturer_Minne
 
             }
 
+            // Simulering av ICA kön:
+            /*ICA öppnar och kön till kassan är tom.
+                Kalle ställer sig i kön.
+                Kö: [Kalle]
+                Greta ställer sig i kön.
+                Kö: [Kalle, Greta]
+                Kalle blir expedierad och lämnar kön.
+                Kö: [Greta]
+                Stina ställer sig i kön.
+                Kö: [Greta, Stina]
+                Greta blir expedierad och lämnar kön.
+                Kö: [Stina]
+                Olle ställer sig i kön.
+                Kö: [Stina, Olle]
+             */
+
         }
 
         /// <summary>
