@@ -372,7 +372,55 @@ namespace SkalProj_Datastrukturer_Minne
              * I vårt fall med parenteser funkar det bra för att matcha öppna och stängda parenteser.
              */
 
+            // Min kod börjar här:
+
+            Console.WriteLine("Ange en sträng för att kontrollera om den är välformad:"); // Be användaren att ange en sträng
+            string input = Console.ReadLine();
+
+            Stack<char> stack = new Stack<char>(); // Stack för öppna parenteser
+
+            foreach (char z in input)  // Gå igenom varje tecken i strängen
+            {
+                if (z == '(' || z == '{' || z == '[') // Om tecknet är en öppen parentes, läggs den till i stacken
+                {
+                    stack.Push((char)z);
+                }
+
+                else if (z == ')' || z == '}' || z == ']') // Om tecknet är en stängd parentes, kontrollera om den matchar den senaste öppnande parentesen
+                {
+                    if (stack.Count == 0) // Om stacken är tom, finns det ingen matchande öppen parentes
+                    {
+                        Console.WriteLine("Strängen är inte välformad.");
+                        return;
+                    }
+
+                    char lastOpen = stack.Pop(); // Ta bort den senaste öppnande parentesen från stacken
+
+                    // Kontrollera om den senaste öppnande parentesen matchar den stängande parentesen
+                    if ((z == ')' && lastOpen != '(') ||
+                    (z == '}' && lastOpen != '{') ||
+                    (z == ']' && lastOpen != '['))
+                    {
+                        Console.WriteLine("Strängen är inte välformad.");
+                        return;
+                    }
+                }
+            }
+
+            // Om stacken inte är tom, finns det öppna parenteser som inte har stängts
+            if (stack.Count == 0)
+            {
+                Console.WriteLine("Strängen är välformad.");
+            }
+            else
+            {
+                Console.WriteLine("Strängen är inte välformad.");
+            }
+
         }
+
+
+
 
     }
 }
