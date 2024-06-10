@@ -165,6 +165,42 @@ namespace SkalProj_Datastrukturer_Minne
              * Create a switch with cases to enqueue items or dequeue items
              * Make sure to look at the queue after Enqueueing and Dequeueing to see how it behaves
             */
+
+
+            //Min kod börjar här:
+            Queue<string> queue = new Queue<string>(); // Jag skapar en Queue<string> för kön
+            bool exit = false;
+
+            while (!exit) // jag initierar en loop som håller programmet igång tills användaren avslutar
+            {
+                Console.WriteLine("Välj ett alternativ:");
+                Console.WriteLine("1. Lägg till i kön (enqueue)");
+                Console.WriteLine("2. Ta bort från kön (dequeue)");
+                Console.WriteLine("3. Visa kön");
+                Console.WriteLine("4. Avsluta");
+
+                string userChoice = Console.ReadLine();
+
+                switch (userChoice)
+                {
+                    case "1":
+                        Console.Write("Ange namnet på personen som ska ställa sig i kön: ");
+                        string name = Console.ReadLine();
+                        queue.Enqueue(name);
+                        Console.WriteLine($"{name} har ställt sig i kön.");
+                        break;
+
+                    case "2":
+                        if (queue.Count > 0)
+                        {
+                            string dequeuedName = queue.Dequeue();
+                            Console.WriteLine($"{dequeuedName} har lämnat kön.");
+                        }
+                        break;
+                }
+
+            }
+
         }
 
         /// <summary>
