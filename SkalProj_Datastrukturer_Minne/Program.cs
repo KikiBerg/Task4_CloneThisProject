@@ -327,10 +327,28 @@ namespace SkalProj_Datastrukturer_Minne
                         Console.WriteLine("Ogiltigt val, försök igen.");
                         break;
                 }
-
             } 
+        }
 
+        static void ReverseText()
+        {
+            Console.Write("Ange en sträng att vända: ");
+            string input = Console.ReadLine();
+            Stack<char> stack = new Stack<char>(); // Skapar en ny stack för tecken
 
+            foreach (char i in input)
+            {
+                stack.Push(i);
+            }
+
+            string reversedString = ""; // Tom sträng för att lagra den omvända strängen
+
+            while (stack.Count > 0)
+            {
+                reversedString += stack.Pop(); // Poppa varje tecken från stacken och lägg till det i den omvända strängen
+            }
+
+            Console.WriteLine($"Omvänd sträng: {reversedString}"); // Skriva ut den omvända strängen
         }
 
 
